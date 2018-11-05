@@ -1,0 +1,21 @@
+<form>
+  <div class="form-group">
+    <label for="password">Email</label>
+    <input type="password" class="form-control" />
+  </div>
+  <div>
+    <label for="Gender">Gender</label><br>
+    <label class="radio-inline">
+      <input type="radio" name="optradio" checked>Male
+    </label>
+    <label class="radio-inline">
+      <input type="radio" name="optradio">Female
+    </label>
+  </div>
+
+  <div class="col text-right">
+      <button type="button" class="btn btn-secondary prev-step" style="margin-right:5px;" (click)="onPreviousEmail()">Previous</button>
+      <button type="button" class="btn btn-success next-step" (click)="onContinueEmail()">continue</button>
+  </div>
+  
+</form>

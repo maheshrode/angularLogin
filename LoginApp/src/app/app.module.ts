@@ -4,10 +4,47 @@ import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { WelcomeComponentComponent } from './welcome-component/welcome-component.component';
+import { RegisterComponent } from './register/register.component';
+import { EmailComponent } from './register/email/email.component';
+import { HomeComponent } from './register/home/home.component';
+import { UsernameComponent } from './register/username/username.component';
 
 const appRoutes: Routes = [
-  { path: '', component: LoginComponentComponent },
-  { path: 'welcome-component', component: WelcomeComponentComponent },
+  {
+    path: '',
+    component: LoginComponentComponent
+  },
+  {
+    path: 'welcome-component',
+    component: WelcomeComponentComponent
+  },
+  {
+    path: 'Register',
+    component: RegisterComponent,
+    children:[
+      {
+        path: '',
+        redirectTo:'home',
+        pathMatch:'full'
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'email',
+        component: EmailComponent
+      },
+      {
+        path: 'username',
+        component: UsernameComponent
+      }
+    ]
+
+  }
+  ,
+ 
+  { path: '**', redirectTo: '' }
 
 ];
 
@@ -15,7 +52,11 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponentComponent,
-    WelcomeComponentComponent
+    WelcomeComponentComponent,
+    RegisterComponent,
+    EmailComponent,
+    HomeComponent,
+    UsernameComponent
   ],
   imports: [
     BrowserModule,

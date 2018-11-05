@@ -15,4 +15,7 @@ export class LoginComponentComponent implements OnInit {
   onLoadLogin(){
     this.router.navigate(['/welcome-component'])
   }
+  onRegister(){
+    this.router.navigate(['/Register'])
+  }
 }

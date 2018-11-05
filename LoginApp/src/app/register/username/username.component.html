@@ -1,0 +1,15 @@
+<form>
+  <div class="form-group">
+    <label for="password">User Name</label>
+    <input type="password" class="form-control" />
+
+  </div>
+  <div class="form-group">
+    <label for="password">New password</label>
+    <input type="password" class="form-control" />
+  </div>
+  <div class="col text-right">
+      <button type="button" class="btn btn-secondary prev-step" style="margin-right:5px;" (click)="onPreviousUsername()">Previous</button>
+      <button type="button" class="btn btn-success next-step" [routerLink]="['login']">Save</button>
+  </div>
+</form>

@@ -1,15 +1,26 @@
-<form>
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
   <div class="form-group">
-    <label for="password">User Name</label>
-    <input type="password" class="form-control" />
+    <label for="username">User Name</label>
+    <input type="text" class="form-control" name="username" placeholder="enter user name" #username="ngModel" [(ngModel)]="f.username" [ngClass]="{'is-invalid': f.submitted && username.invalid}"
+      required />
+    <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+      <div *ngIf="username.errors.required">username is required</div>
 
+    </div>
   </div>
+
   <div class="form-group">
     <label for="password">New password</label>
-    <input type="password" class="form-control" />
+    <input type="password" class="form-control" name="password" placeholder="enter password" #password="ngModel" [(ngModel)]="f.password" [ngClass]="{'is-invalid' : f.submitted && password.invalid}"
+      required minlength="6" />
+    <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+      <div *ngIf="password.errors.required">password is required</div>
+      <div *ngIf="password.errors.minlength">password must be at least 6 characters</div>
+    </div>
   </div>
+
   <div class="col text-right">
-      <button type="button" class="btn btn-secondary prev-step" style="margin-right:5px;" (click)="onPreviousUsername()">Previous</button>
-      <button type="button" class="btn btn-success next-step" [routerLink]="['login']">Save</button>
+    <button class="btn btn-secondary prev-step" style="margin-right:5px;" (click)="onPreviousUsername()">Previous</button>
+    <button class="btn btn-success next-step">Register</button>
   </div>
 </form>

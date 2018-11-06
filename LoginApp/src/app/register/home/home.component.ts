@@ -13,9 +13,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSaveAndContinue(){
-this.router.navigate(['/Register/email'])
+  onSaveAndContinue() {
+    this.router.navigate(['/Register/email'])
   }
-
+  onSubmit() {
+   this.onSaveAndContinue();
+  }
 
 }

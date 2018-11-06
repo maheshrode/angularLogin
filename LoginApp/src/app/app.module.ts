@@ -8,6 +8,11 @@ import { RegisterComponent } from './register/register.component';
 import { EmailComponent } from './register/email/email.component';
 import { HomeComponent } from './register/home/home.component';
 import { UsernameComponent } from './register/username/username.component';
+import { FormsModule } from '@angular/forms';
+
+
+
+
 
 const appRoutes: Routes = [
   {
@@ -60,6 +65,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)],
 
   providers: [],

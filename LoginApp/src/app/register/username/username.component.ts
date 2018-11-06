@@ -13,9 +13,18 @@ export class UsernameComponent implements OnInit {
   ngOnInit() {
   }
 
-  onPreviousUsername(){
-this.router.navigate(['/Register/email'])
+  onPreviousUsername() {
+    this.router.navigate(['/Register/email'])
   }
 
-  
+  onRegister() {
+    this.router.navigate(['/login'])
+  }
+
+  onSubmit() {
+    this.onRegister();
+  }
+
+
+
 }

@@ -1,10 +1,18 @@
-<form>
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
   <div class="form-group">
-    <label for="password">Email</label>
-    <input type="password" class="form-control" />
+    <label for="email">Email</label>
+    <input type="text" name="email" class="form-control" placeholder="enter email" [(ngModel)]="f.email" #email="ngModel" [ngClass]="{'is-invalid' : email.invalid && f.submitted }"
+      required email/>
+    <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+      <div *ngIf="email.errors.required">Email is required</div>
+      <div *ngIf="email.errors.email">Email must be a valid email address</div>
+    </div>
   </div>
+
   <div>
-    <label for="Gender">Gender</label><br>
+    <label for="Gender">Gender</label>
+    <br>
     <label class="radio-inline">
       <input type="radio" name="optradio" checked>Male
     </label>
@@ -14,8 +22,8 @@
   </div>
 
   <div class="col text-right">
-      <button type="button" class="btn btn-secondary prev-step" style="margin-right:5px;" (click)="onPreviousEmail()">Previous</button>
-      <button type="button" class="btn btn-success next-step" (click)="onContinueEmail()">continue</button>
+    <button class="btn btn-secondary prev-step" style="margin-right:5px;" (click)="onPreviousEmail()">Previous</button>
+    <button class="btn btn-success next-step">continue</button>
   </div>
-  
+
 </form>

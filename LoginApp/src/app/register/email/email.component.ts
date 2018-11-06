@@ -21,4 +21,9 @@ export class EmailComponent implements OnInit {
     this.router.navigate(['/Register/home'])
   }
 
+  onSubmit(){
+    this.onContinueEmail();
+  }
+
+
 }
